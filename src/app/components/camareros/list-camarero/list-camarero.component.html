@@ -5,8 +5,9 @@
         <th>Codigo</th>
         <th>Nombre</th>
     </tr>
-    <tr>
-        <td *ngFor="let camarero of camareros">{{camarero.codigo}}&ensp;{{camarero.nombre}}></td>
+    <tr *ngFor="let camarero of camareros">
+        <td>{{camarero.codigo}}&ensp;
+        <td>{{camarero.nombre}}</td>
     </tr>
 </table>
 
