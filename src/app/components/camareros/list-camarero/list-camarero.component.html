@@ -1,1 +1,5 @@
-<p>list-camarero works!</p>
+<h2>Lista de camareros</h2>
+
+<ul *ngIf="camareros">
+    <li *ngFor="let camarero of camareros">{{camarero.codigo}}&ensp;{{camarero.nombre}}</li>
+</ul>
