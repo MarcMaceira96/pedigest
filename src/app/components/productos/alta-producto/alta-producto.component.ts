@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-alta-producto',
@@ -10,10 +11,13 @@ import { ProductoService } from 'src/app/services/producto.service';
 export class AltaProductoComponent implements OnInit {
 
   producto:Producto = new Producto();
+  categorias:string[] = undefined;
 
-  constructor(private productoService:ProductoService) { }
+  constructor(private productoService:ProductoService,
+              private categoriaService:CategoriaService) { }
 
   ngOnInit() {
+    this.categoriaService.getAll().subscribe(datos => this.categorias = datos);
   }
 
   crear(){
