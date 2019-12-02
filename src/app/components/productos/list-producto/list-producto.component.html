@@ -1,4 +1,10 @@
 <h2>Lista de Productos</h2>
+<table>
+    <tr>
+        <th>Codigo: </th>
+        <th>Nombre: </th>
+    </tr>
+</table>
 
 <ul *ngIf="productos">
     <li *ngFor="let producto of productos">{{producto.codigo}}&ensp;{{producto.nombre}}</li>
