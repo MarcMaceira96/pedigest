@@ -14,9 +14,11 @@ export class ListCamareroComponent implements OnInit {
   constructor(private camareroService:CamareroService) { }
 
   ngOnInit() {
-    this.camareroService.getCamareros().subscribe(datos => {
+    
+    this.camareroService.getAll().subscribe(datos => {
       this.camareros = datos;
-    })
+    });
+  
   }
 
 }
