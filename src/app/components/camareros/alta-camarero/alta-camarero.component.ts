@@ -18,7 +18,7 @@ export class AltaCamareroComponent implements OnInit {
   }
 
   alta() {
-    this.camareroService.postCamarero(this.camarero).subscribe(data => console.log(data));
+    this.camareroService.create(this.camarero).subscribe(data => console.log(data));
   }
 
 }

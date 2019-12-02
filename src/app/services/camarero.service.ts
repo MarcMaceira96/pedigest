@@ -12,13 +12,11 @@ export class CamareroService {
 
   constructor(private http:HttpClient) { }
 
-  getCamareros(): Observable<Camarero[]> {
-
+  getAll(): Observable<Camarero[]> {
     return this.http.get<Camarero[]>(URL);
   }
 
-  postCamarero(camarero: Camarero) :Observable<Camarero> {
-
+  create(camarero: Camarero) :Observable<Camarero> {
     return this.http.post<Camarero>(URL, camarero);
   }
 }

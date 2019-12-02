@@ -1,1 +1,5 @@
-<p>list-producto works!</p>
+<h2>Lista de Productos</h2>
+
+<ul *ngIf="productos">
+    <li *ngFor="let producto of productos">{{producto.codigo}}&ensp;{{producto.nombre}}</li>
+</ul>
