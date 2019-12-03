@@ -21,6 +21,5 @@ export class PedidoService {
 
   getPedido(id: number): Observable<Pedido> {
     return this.http.get<Pedido>(URL + id);
-
   }
 }

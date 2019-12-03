@@ -1,0 +1,46 @@
+<h2>Detalle del pedido</h2>
+
+<div *ngIf="pedido.lineasPedido && pedido.camarero">
+ 
+    <table title="Detalles generales">
+        <tr>
+            <th>Camarero</th>
+            <th>Fecha</th>
+            <th>ID</th>
+            <th>Precio Total</th>
+            <th>Mesa</th>
+            <th>NumeroLineas</th>
+        </tr>
+        <tr>
+            <td>{{pedido.camarero.nombre}}</td>
+            <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
+            <td>{{pedido.id}}</td>
+            <td>{{totalPedido}}</td>
+            <td>{{pedido.mesa}}</td>
+            <td>{{pedido.lineasPedido.length}}</td>
+        </tr>
+    </table>
+    
+    <table title="Productos del pedido">
+            <tr>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Codigo</th>
+                <th>Descatalogado</th>
+                <th>Descripcion</th>
+                <th>Fecha Alta</th>
+                <th>Nombre</th>
+            </tr>
+        <tr *ngFor="let linea of pedido.lineasPedido">
+            <td>{{linea.cantidad}}</td>
+            <td>{{linea.precio}}</td>
+            <td>{{linea.producto.categoria}}</td>
+            <td>{{linea.producto.codigo}}</td>
+            <td>{{linea.producto.descatalogado}}</td>
+            <td>{{linea.producto.descripcion}}</td>
+            <td>{{linea.producto.fechaAlta}}</td>
+            <td>{{linea.producto.nombre}}</td>
+        </tr>
+    </table>
+</div>
