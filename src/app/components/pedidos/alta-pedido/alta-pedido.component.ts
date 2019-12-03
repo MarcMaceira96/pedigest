@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pedido } from 'src/app/models/pedido';
 
 @Component({
   selector: 'app-alta-pedido',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AltaPedidoComponent implements OnInit {
 
-  constructor() { }
+  pedido: Pedido = new Pedido();
+
+  constructor(private pedidoService) { }
 
   ngOnInit() {
   }
