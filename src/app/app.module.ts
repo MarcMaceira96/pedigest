@@ -11,6 +11,7 @@ import { AltaPedidoComponent } from './components/pedidos/alta-pedido/alta-pedid
 import { ListPedidoComponent } from './components/pedidos/list-pedido/list-pedido.component';
 import { ListProductoComponent } from './components/productos/list-producto/list-producto.component';
 import { AltaProductoComponent } from './components/productos/alta-producto/alta-producto.component';
+import { EditProductoComponent } from './components/productos/edit-producto/edit-producto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AltaProductoComponent } from './components/productos/alta-producto/alta
     AltaPedidoComponent,
     ListPedidoComponent,
     ListProductoComponent,
-    AltaProductoComponent
+    AltaProductoComponent,
+    EditProductoComponent
   ],
   imports: [
     BrowserModule,

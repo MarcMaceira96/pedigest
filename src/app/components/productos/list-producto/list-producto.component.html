@@ -1,6 +1,6 @@
 <h2>Lista de Productos</h2>
 
-<table>
+<table *ngIf="productos">
     <tr>
         <th>Codigo</th>
         <th>Nombre</th>
@@ -9,6 +9,7 @@
         <th>Descatalogado</th>
         <th>Fecha alta</th>
         <th>Precio</th>
+        <th>Editar</th>
     </tr>
     <tr *ngFor="let producto of productos">
         <td>{{producto.codigo}}</td>
@@ -18,5 +19,6 @@
         <td>{{producto.descatalogado}}</td>
         <td>{{producto.fechaAlta | date}}</td>
         <td>{{producto.precio}}</td>
+        <td><a routerLink="/editProducto/{{producto.codigo}}">edit</a></td>
     </tr>
 </table>
