@@ -2,7 +2,7 @@ import { Producto } from './producto';
 
 export class LineaPedido {
 
-    cantidad:number;
-    precio:number;
-    producto:Producto;
+    cantidad: number;
+    precio: number;
+    producto: Producto;
 }

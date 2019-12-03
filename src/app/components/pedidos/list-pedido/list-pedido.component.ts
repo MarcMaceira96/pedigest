@@ -18,8 +18,19 @@ export class ListPedidoComponent implements OnInit {
   ngOnInit() {
     this.pedidoService.getAll().subscribe(datos => {
       console.log(datos);
-      //this.pedidos = datos;
+      this.pedidos = datos;
     });
+
+    /*this.pedidoService.getPedido(1).subscribe(datos => {
+      let precioTotal: number;
+      console.log(datos);
+      for(let i = 0; i < datos.lineasPedido.length; i++) {
+        precioTotal += datos.lineasPedido[i].precio;
+        console.log(precioTotal);
+      }
+      console.log(precioTotal);
+      this.pedidos[1].precioTotal;
+    })*/
   }
 
 }

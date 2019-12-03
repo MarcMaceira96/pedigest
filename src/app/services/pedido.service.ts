@@ -11,9 +11,16 @@ const URL = 'http://10.250.5.12:8086/api/pedidos/';
 })
 export class PedidoService {
 
+  obs1: Observable<Pedido> = new Observable;
+
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pedido> {
-    return this.http.get<Pedido>(URL);
+  getAll(): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(URL);
+  }
+
+  getPedido(id: number): Observable<Pedido> {
+    return this.http.get<Pedido>(URL + id);
+
   }
 }
