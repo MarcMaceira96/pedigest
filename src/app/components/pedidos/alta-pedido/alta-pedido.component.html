@@ -1,14 +1,12 @@
 <h2>Alta pedido</h2>
 
-<p>Categoria: 
-Camarero: <input type="text" [(ngModel)]="">
-<select [(ngModel)]="producto.categoria">
-    <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria}}</option>
+<p>Camarero: 
+<select [(ngModel)]="pedido.camarero">
+    <option *ngFor="let camarero of camareros" [ngValue]="camarero">{{camarero.nombre}}</option>
 </select><br></p>
-Codigo: <input type="number" [(ngModel)]="producto.codigo"><br>
-Descatalogado: <input type="checkbox" [(ngModel)]="producto.descatalogado"><br>
-Descripcion: <input type="text" [(ngModel)]="producto.descripcion"><br>
-Fecha: <input type="date" [(ngModel)]="producto.fechaAlta"><br>
-Nombre: <input type="text" [(ngModel)]="producto.nombre"><br>
-Precio: <input type="number" [(ngModel)]="producto.precio"><br>
+Codigo: <input type="number" [(ngModel)]="pedido.id"><br>
+Fecha: <input type="date" [(ngModel)]="pedido.fecha"><br>
+Mesa: <input type="number" [(ngModel)]="pedido.mesa"><br>
+
 <button (click)="crear()">Crear</button>
+
