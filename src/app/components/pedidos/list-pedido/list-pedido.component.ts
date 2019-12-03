@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/models/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
 
+import { Pedido } from 'src/app/models/pedido';
+import { PedidoService } from 'src/app/services/pedido.service';
+
+
 @Component({
   selector: 'app-list-pedido',
   templateUrl: './list-pedido.component.html',

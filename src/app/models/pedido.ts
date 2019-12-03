@@ -7,5 +7,6 @@ export class Pedido {
     fecha:Date;
     id:number;
     lineasPedido:LineaPedido[];
+    precioTotal:number;
     mesa:number;
 }
