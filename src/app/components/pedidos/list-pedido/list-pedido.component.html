@@ -1,1 +1,26 @@
-<p>list-pedido works!</p>
+<h2>Lista de Pedidos</h2>
+
+<table *ngIf="pedidos">
+    <tr>
+        <th>ID</th>
+        <th>Camarero</th>
+        <th>Fecha</th>
+        <th>Mesa</th>
+        <th>Lineas de pedido</th>
+        <th>Precio total</th>
+        <th>Detalle</th>
+    </tr>
+    <tr *ngFor="let pedido of pedidos">
+        <td>{{pedido.id}}</td>
+        <td>{{pedido.camarero.nombre}}</td>
+        <td>{{pedido.fecha | date}}</td>
+        <td>{{pedido.mesa}}</td>
+        <td>{{pedido.lineasPedido.length}}</td>
+        <td>
+            <var *ngFor="let linea of pedido.lineasPedido" value="linea"> Precio:{{(linea.precio * linea.cantidad)}}</var>
+        </td>
+        <td><a routerLink="/detallePedido/{{pedido.id}}">Detalle pedido</a></td>
+    </tr>
+</table>
+
+<!-- <li *ngFor="let linea of pedido.lineasPedido" value="linea">{{linea.producto.nombre}} {{linea.precio}}</li> -->

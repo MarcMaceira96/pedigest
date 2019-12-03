@@ -13,7 +13,7 @@ export class PedidoService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pedido> {
-    return this.http.get<Pedido>(URL);
+  getAll(): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(URL);
   }
 }

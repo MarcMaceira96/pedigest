@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pedido } from 'src/app/models/pedido';
+import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
   selector: 'app-list-pedido',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPedidoComponent implements OnInit {
 
-  constructor() { }
+  pedidos:Pedido[] = undefined;
+
+  constructor(private pedidoService:PedidoService) { }
 
   ngOnInit() {
+    this.pedidoService.getAll().subscribe(pedidos => {
+      this.pedidos = pedidos;
+      console.log(pedidos)
+    });
   }
 
 }
