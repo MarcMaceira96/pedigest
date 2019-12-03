@@ -4,16 +4,15 @@
 <select [(ngModel)]="pedido.camarero">
     <option *ngFor="let camarero of camareros" [ngValue]="camarero">{{camarero.nombre}}</option>
 </select><br></p>
-<!--Codigo: <input type="number" [(ngModel)]="pedido.id"><br>-->
-<!--Fecha: <input type="date" [(ngModel)]="pedido.fecha"><br>-->
 Mesa: <input type="number" [(ngModel)]="pedido.mesa"><br><br>
 <h3>Linea pedido:</h3><br>
 Producto:
-<select [(ngModel)]="lineaPedido.producto">
+<select [(ngModel)]="lineaPedido.producto" (change)="setPrice()">
     <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}}</option>
 </select><br>
 Cantidad: <input type="number" [(ngModel)]="lineaPedido.cantidad"><br>
-<!--Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>-->
+Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>
+
 <button (click)="crearLinea()">Añadir linea</button><br><br>
 <table>
     <tr>

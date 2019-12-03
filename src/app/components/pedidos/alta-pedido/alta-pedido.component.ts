@@ -16,7 +16,7 @@ export class AltaPedidoComponent implements OnInit {
 
   pedido: Pedido = new Pedido();
   camareros: Camarero[] = undefined;
-  lineaPedido:LineaPedido = new LineaPedido;
+  lineaPedido:LineaPedido = new LineaPedido();
   productos:Producto[] = undefined;
 
   constructor(private pedidoService:PedidoService,
@@ -32,22 +32,26 @@ export class AltaPedidoComponent implements OnInit {
       this.productos = datos
       console.log(datos)
     });
+    this.lineaPedido.cantidad = 1;
   }
 
   crearLinea(){
-    this.lineaPedido.precio = this.lineaPedido.producto.precio;
     if (this.pedido.lineasPedido){
       this.pedido.lineasPedido.push(this.lineaPedido);
     } else {
       this.pedido.lineasPedido = Array(this.lineaPedido);
     }
-    this.lineaPedido = new LineaPedido;
-    }
+    this.lineaPedido = new LineaPedido();
+    this.lineaPedido.cantidad = 1;
+  }
   
-
   add() {
-    this.pedido.fecha = new Date;
+    this.pedido.fecha = new Date();
     this.pedidoService.create(this.pedido).subscribe(datos => console.log(datos));
+  }
+
+  setPrice(){
+    this.lineaPedido.precio = this.lineaPedido.producto.precio;
   }
 
 }
