@@ -22,4 +22,8 @@ export class PedidoService {
   read(id: number): Observable<Pedido> {
     return this.http.get<Pedido>(URL + id);
   }
+
+  create(pedido: Pedido): Observable<Pedido> {
+    return this.http.post<Pedido>(URL, pedido);
+  }
 }

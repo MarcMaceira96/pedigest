@@ -1,1 +1,32 @@
-<p>alta-pedido works!</p>
+<h2>Alta pedido</h2>
+
+<p>Camarero: 
+<select [(ngModel)]="pedido.camarero">
+    <option *ngFor="let camarero of camareros" [ngValue]="camarero">{{camarero.nombre}}</option>
+</select><br></p>
+<!--Codigo: <input type="number" [(ngModel)]="pedido.id"><br>-->
+<!--Fecha: <input type="date" [(ngModel)]="pedido.fecha"><br>-->
+Mesa: <input type="number" [(ngModel)]="pedido.mesa"><br><br>
+<h3>Linea pedido:</h3><br>
+Producto:
+<select [(ngModel)]="lineaPedido.producto">
+    <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}}</option>
+</select><br>
+Cantidad: <input type="number" [(ngModel)]="lineaPedido.cantidad"><br>
+<!--Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>-->
+<button (click)="crearLinea()">Añadir linea</button><br><br>
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+    <tr *ngFor="let linea of pedido.lineasPedido">
+        <td>{{linea.producto.nombre}}</td>
+        <td>{{linea.cantidad}}</td>
+        <td>{{linea.precio}}</td>
+    </tr>
+</table>
+
+<button (click)="add()">Crear pedido</button>
+
