@@ -1,0 +1,26 @@
+<h2>Editar producto</h2>
+<br>
+Codigo ISBN<br>
+<p>{{producto.codigo}}</p>
+
+Nombre:
+<input type='text'[(ngModel)]='producto.nombre' ><br><br>
+
+Categoria del producto: 
+<select [(ngModel)]='producto.categoria'>
+    <option *ngFor='let categoria of categorias' [(ngValue)]='categoria'>{{categoria}}
+</select><br><br>
+
+Descatalogado:
+<input type='checkbox' [(ngModel)]='producto.descatalogado'><br><br>
+
+Descripción:
+<input type='text'[(ngModel)]='producto.descripcion' ><br><br>
+
+Fecha de alta:
+<input type='date' [(ngModel)]='producto.fechaAlta' ><br><br>
+
+Precio:
+<input type='number' [(ngModel)]='producto.precio' ><br><br>
+<button (click)="edit()">Actualizar</button>
+

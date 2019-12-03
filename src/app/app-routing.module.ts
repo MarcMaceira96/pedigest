@@ -6,6 +6,7 @@ import { AltaPedidoComponent } from './components/pedidos/alta-pedido/alta-pedid
 import { ListPedidoComponent } from './components/pedidos/list-pedido/list-pedido.component';
 import { AltaProductoComponent } from './components/productos/alta-producto/alta-producto.component';
 import { ListProductoComponent } from './components/productos/list-producto/list-producto.component';
+import { EditProductoComponent } from './components/productos/edit-producto/edit-producto.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'pedidos', component: ListPedidoComponent},
   {path:'altaProducto', component: AltaProductoComponent},
   {path:'productos', component: ListProductoComponent},
+  {path:'editProducto/:codigo', component: EditProductoComponent},
   {path:'**', redirectTo:''}
 
 ];

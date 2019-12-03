@@ -19,4 +19,12 @@ export class ProductoService {
   create(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(URL, producto);
   }
+
+  read(codigo:number):Observable<Producto>{
+    return this.http.get<Producto>(URL + codigo);
+  }
+
+  /*edit(producto: Producto): Observable<Producto>{
+    return this.http.
+  }*/
 }
