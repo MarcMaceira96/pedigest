@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/models/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
 
-import { Pedido } from 'src/app/models/pedido';
-import { PedidoService } from 'src/app/services/pedido.service';
-
 
 @Component({
   selector: 'app-list-pedido',
@@ -22,6 +19,14 @@ export class ListPedidoComponent implements OnInit {
       this.pedidos = pedidos;
       console.log(pedidos)
     });
+  }
+
+  precioTotal(pedido:Pedido):any{
+    let precio:number = 0;
+    for (let linea of pedido.lineasPedido){
+      precio += (linea.cantidad * linea.precio)
+    }
+    return precio;
   }
 
 }

@@ -13,13 +13,10 @@
     <tr *ngFor="let pedido of pedidos">
         <td>{{pedido.id}}</td>
         <td>{{pedido.camarero.nombre}}</td>
-        <td>{{pedido.fecha | date}}</td>
+        <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
         <td>{{pedido.mesa}}</td>
         <td>{{pedido.lineasPedido.length}}</td>
-        <!--<td>{{pedido.lineasPedido[0].precio}}</td>-->
-        <td>
-            <var *ngFor="let linea of pedido.lineasPedido" value="linea"> Precio:{{(linea.precio * linea.cantidad)}}</var>
-        </td>
+        <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
         <td><a routerLink="/detallePedido/{{pedido.id}}">Detalle pedido</a></td>
     </tr>
 </table>
