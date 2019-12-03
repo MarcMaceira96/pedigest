@@ -2,21 +2,23 @@
 
 <table *ngIf="pedidos">
     <tr>
+        <th>ID</th>
         <th>Camarero</th>
         <th>Fecha</th>
-        <th>ID</th>
-        <th>Lineas Pedido</th>
-        <th>Precio</th>
         <th>Mesa</th>
-
+        <th>Lineas de pedido</th>
+        <th>Precio total</th>
+        <th>Detalle</th>
     </tr>
     <tr *ngFor="let pedido of pedidos">
+        <td>{{pedido.id}}</td>
         <td>{{pedido.camarero.nombre}}</td>
         <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
-        <td>{{pedido.id}}</td>
-        <td>{{pedido.lineasPedido.length}}</td>
-        <td>{{pedido.lineasPedido[0].precio}}</td>
         <td>{{pedido.mesa}}</td>
-        <a routerLink="/detallePedido/{{pedido.id}}">Detalle</a>
+        <td>{{pedido.lineasPedido.length}}</td>
+        <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
+        <td><a routerLink="/detallePedido/{{pedido.id}}">Detalle pedido</a></td>
     </tr>
 </table>
+
+<!-- <li *ngFor="let linea of pedido.lineasPedido" value="linea">{{linea.producto.nombre}} {{linea.precio}}</li> -->

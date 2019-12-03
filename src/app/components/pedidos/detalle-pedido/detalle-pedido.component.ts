@@ -19,16 +19,15 @@ export class DetallePedidoComponent implements OnInit {
 
   ngOnInit() {
     this.ActivatedRoute.params.subscribe(x => {
-      this.pedidoService.getPedido(Number(x.id)).subscribe(datos => {
+      this.pedidoService.read(Number(x.id)).subscribe(datos => {
         console.log(datos);
         this.pedido = datos;
+      })
+    })
+  };
 
-        for(let lp of this.pedido.lineasPedido){
-          this.totalPedido += lp.cantidad * lp.precio;
-        }
-      });
-    });
-
-  }
+  /*for(let lp of this.pedido.lineasPedido){
+    this.totalPedido += lp.cantidad * lp.precio;
+  }*/
 
 }

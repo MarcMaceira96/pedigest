@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Pedido } from 'src/app/models/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
 
@@ -11,26 +10,23 @@ import { PedidoService } from 'src/app/services/pedido.service';
 })
 export class ListPedidoComponent implements OnInit {
 
-  pedidos: Pedido[] = undefined;
+  pedidos:Pedido[] = undefined;
 
-  constructor(private pedidoService: PedidoService) { }
+  constructor(private pedidoService:PedidoService) { }
 
   ngOnInit() {
-    this.pedidoService.getAll().subscribe(datos => {
-      console.log(datos);
-      this.pedidos = datos;
+    this.pedidoService.getAll().subscribe(pedidos => {
+      this.pedidos = pedidos;
+      console.log(pedidos)
     });
+  }
 
-    /*this.pedidoService.getPedido(1).subscribe(datos => {
-      let precioTotal: number;
-      console.log(datos);
-      for(let i = 0; i < datos.lineasPedido.length; i++) {
-        precioTotal += datos.lineasPedido[i].precio;
-        console.log(precioTotal);
-      }
-      console.log(precioTotal);
-      this.pedidos[1].precioTotal;
-    })*/
+  precioTotal(pedido:Pedido):any{
+    let precio:number = 0;
+    for (let linea of pedido.lineasPedido){
+      precio += (linea.cantidad * linea.precio)
+    }
+    return precio;
   }
 
 }
