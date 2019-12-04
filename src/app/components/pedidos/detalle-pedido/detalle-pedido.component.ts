@@ -18,6 +18,7 @@ export class DetallePedidoComponent implements OnInit {
               private ActivatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    
     this.ActivatedRoute.params.subscribe(x => {
       this.pedidoService.read(Number(x.id)).subscribe(datos => {
         console.log(datos);
@@ -26,8 +27,14 @@ export class DetallePedidoComponent implements OnInit {
     })
   };
 
-  /*for(let lp of this.pedido.lineasPedido){
-    this.totalPedido += lp.cantidad * lp.precio;
-  }*/
+  precioTotal(pedido:Pedido):any{
+
+    let precio:number = 0;
+    for (let linea of pedido.lineasPedido){
+      precio += (linea.cantidad * linea.precio)
+    }
+
+    return precio;
+  }
 
 }

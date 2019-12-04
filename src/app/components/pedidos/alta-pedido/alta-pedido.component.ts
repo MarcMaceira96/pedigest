@@ -24,34 +24,52 @@ export class AltaPedidoComponent implements OnInit {
               private productoService:ProductoService) { }
 
   ngOnInit() {
+
     this.camareroService.getAll().subscribe(datos => {
       this.camareros = datos
-      console.log(datos)
+      //console.log(datos)
     });
+
     this.productoService.getAll().subscribe(datos => {
       this.productos = datos
-      console.log(datos)
+      //console.log(datos)
     });
+
     this.lineaPedido.cantidad = 1;
-  }
+  };
 
   crearLinea(){
+
     if (this.pedido.lineasPedido){
       this.pedido.lineasPedido.push(this.lineaPedido);
     } else {
       this.pedido.lineasPedido = Array(this.lineaPedido);
     }
+
     this.lineaPedido = new LineaPedido();
     this.lineaPedido.cantidad = 1;
-  }
+  };
   
   add() {
+
     this.pedido.fecha = new Date();
     this.pedidoService.create(this.pedido).subscribe(datos => console.log(datos));
-  }
+  };
 
   setPrice(){
+    
     this.lineaPedido.precio = this.lineaPedido.producto.precio;
-  }
+  };
+
+  eliminar(borrarLinea:LineaPedido){
+    
+    let count = 0
+    for (let linea of this.pedido.lineasPedido){
+      if (borrarLinea == linea){
+        this.pedido.lineasPedido.splice(count,1)
+      }
+      count++;
+    }
+  };
 
 }

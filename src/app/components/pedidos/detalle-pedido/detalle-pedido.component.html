@@ -4,20 +4,20 @@
  
     <table title="Detalles generales">
         <tr>
-            <th>Camarero</th>
-            <th>Fecha</th>
             <th>ID</th>
-            <th>Precio Total</th>
+            <th>Camarero</th>
             <th>Mesa</th>
+            <th>Fecha</th>
             <th>NumeroLineas</th>
+            <th>Precio Total</th>
         </tr>
         <tr>
-            <td>{{pedido.camarero.nombre}}</td>
-            <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
             <td>{{pedido.id}}</td>
-            <td>{{totalPedido}}</td>
+            <td>{{pedido.camarero.nombre}}</td>
             <td>{{pedido.mesa}}</td>
+            <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
             <td>{{pedido.lineasPedido.length}}</td>
+            <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
         </tr>
     </table>
     

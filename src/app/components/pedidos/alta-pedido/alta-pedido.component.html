@@ -5,27 +5,46 @@
     <option *ngFor="let camarero of camareros" [ngValue]="camarero">{{camarero.nombre}}</option>
 </select><br></p>
 Mesa: <input type="number" [(ngModel)]="pedido.mesa"><br><br>
-<h3>Linea pedido:</h3><br>
-Producto:
+<h3>Añadir linea de pedido:</h3>
+<!--Producto:
 <select [(ngModel)]="lineaPedido.producto" (change)="setPrice()">
     <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}}</option>
 </select><br>
 Cantidad: <input type="number" [(ngModel)]="lineaPedido.cantidad"><br>
 Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>
-
-<button (click)="crearLinea()">Añadir linea</button><br><br>
+-->
 <table>
     <tr>
         <th>Producto</th>
         <th>Cantidad</th>
         <th>Precio</th>
     </tr>
+    <tr>
+        <th>
+            <select [(ngModel)]="lineaPedido.producto" (change)="setPrice()">
+                <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}}</option>
+            </select>
+        </th>
+        <th><input type="number" [(ngModel)]="lineaPedido.cantidad"></th>
+        <th><input type="number" [(ngModel)]="lineaPedido.precio"></th>
+    </tr>
+</table>
+<button (click)="crearLinea()">Añadir linea</button><br><br>
+
+<h3>Detalle del pedido:</h3>
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        
+    </tr>
     <tr *ngFor="let linea of pedido.lineasPedido">
         <td>{{linea.producto.nombre}}</td>
         <td>{{linea.cantidad}}</td>
-        <td>{{linea.precio}}</td>
+        <td>{{linea.precio | currency: 'EUR'}}</td>
+        <td><button (click)="eliminar(linea)">Borrar linea</button></td>
     </tr>
-</table>
-
+</table><br><br><br>
 <button (click)="add()">Crear pedido</button>
 
