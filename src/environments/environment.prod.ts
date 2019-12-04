@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: 'http://pedi-gest.herokuapp.com/api/',
 };

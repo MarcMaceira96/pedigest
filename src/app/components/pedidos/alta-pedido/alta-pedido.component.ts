@@ -6,6 +6,7 @@ import { CamareroService } from 'src/app/services/camarero.service';
 import { LineaPedido } from 'src/app/models/lineaPedido';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alta-pedido',
@@ -21,7 +22,8 @@ export class AltaPedidoComponent implements OnInit {
 
   constructor(private pedidoService:PedidoService,
               private camareroService:CamareroService,
-              private productoService:ProductoService) { }
+              private productoService:ProductoService,
+              private router:Router) { }
 
   ngOnInit() {
 
@@ -54,6 +56,7 @@ export class AltaPedidoComponent implements OnInit {
 
     this.pedido.fecha = new Date();
     this.pedidoService.create(this.pedido).subscribe(datos => console.log(datos));
+    this.pedido = new Pedido();
   };
 
   setPrice(){
