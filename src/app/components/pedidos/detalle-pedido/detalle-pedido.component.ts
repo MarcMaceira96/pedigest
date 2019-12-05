@@ -13,6 +13,7 @@ export class DetallePedidoComponent implements OnInit {
 
   pedido: Pedido = new Pedido();
   totalPedido:number = 0;
+  pedidoArray:Pedido[];
 
   constructor(private pedidoService: PedidoService,
               private ActivatedRoute:ActivatedRoute) { }
@@ -23,8 +24,11 @@ export class DetallePedidoComponent implements OnInit {
       this.pedidoService.read(Number(x.id)).subscribe(datos => {
         console.log(datos);
         this.pedido = datos;
+        this.pedidoArray = Array(this.pedido);
       })
     })
+
+    
   };
 
   precioTotal(pedido:Pedido):any{

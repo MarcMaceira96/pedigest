@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:8086/api/',
+  //apiURL: 'http://pedi-gest.herokuapp.com/api/'
+  apiURL: 'http://10.250.5.12:8086/api/',
 };
 
 /*

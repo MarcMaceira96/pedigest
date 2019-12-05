@@ -1,6 +1,15 @@
 <h2>Ingresar</h2>
 
-codigo: <input type="number" [(ngModel)]="camarero.codigo"><br>
-nombre: <input type="text" [(ngModel)]="camarero.nombre"><br>
+<!--Codigo: <input type="number" [(ngModel)]="camarero.codigo"><br>
+Nombre: <input type="text" [(ngModel)]="camarero.nombre"><br>-->
 
-<button (click)="alta()">Ingresar</button>
+<h3>Codigo Camarero</h3>
+<input type="number" pInputText placeholder="Codigo" [(ngModel)]="camarero.codigo"/>
+
+<h3>Nombre Camarero</h3>
+<span class="ui-float-label">
+    <input id="float-input" type="text" size="30" pInputText [(ngModel)]="camarero.nombre"> 
+    <label for="float-input">Nombre</label>
+</span><br>
+
+<button pButton type="button" label="Ingresar" (click)="alta()" class="ui-button-success"></button>

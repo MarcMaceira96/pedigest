@@ -1,4 +1,4 @@
-<h2>Lista de Productos</h2>
+<!--<h2>Lista de Productos</h2>
 
 <table *ngIf="productos">
     <tr>
@@ -22,3 +22,71 @@
         <td><a routerLink="/editProducto/{{producto.codigo}}">edit</a></td>
     </tr>
 </table>
+-->
+<!--                  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM           -->
+
+<h3 class="first">Lista de roductos</h3>
+<p-virtualScroller [value]="productos" scrollHeight="600px" [itemSize]="250" 
+        ><!--[rows]="productos.length" [cache]="false" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)" [totalRecords]="totalProductosLength"-->
+    <p-header>
+        Lista de productos
+    </p-header>
+    <ng-template let-producto pTemplate="item" let-i="index">
+        <div class="ui-g car-item">
+            <div class="ui-g-12 ui-md-1">
+                <div style="font-size: 24px; text-align: center; padding-top: 80px">{{producto.codigo}}</div>
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <img style="padding-top: 48px" src="assets/plato.png">
+            </div>
+            <div class="ui-g-12 ui-md-8">
+                <div class="ui-g">
+        
+                    <div class="ui-g-2 ui-sm-6">Producto: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.nombre}}</div>
+        
+                    <div class="ui-g-2 ui-sm-6">Categoria: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.categoria}}</div>
+
+                    <div class="ui-g-2 ui-sm-6">Precio: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.precio | currency:'EUR'}}</div>
+
+                    <div class="ui-g-2 ui-sm-6">Descatalogado: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.descatalogado}}</div>
+
+                    <div class="ui-g-2 ui-sm-6">Fecha de Alta: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.fechaAlta | date}}</div>
+        
+                    <div class="ui-g-2 ui-sm-6">Descripcion: </div>
+                    <div class="ui-g-10 ui-sm-6">{{producto?.descripcion}}</div> 
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-1" style="padding-top: 80px">
+                <a routerLink="/editProducto/{{producto.codigo}}">edit</a>
+            </div>
+        </div>
+    </ng-template>
+    
+</p-virtualScroller>
+
+<!--
+    <ng-template let-car pTemplate="loadingItem">
+        <div class="ui-g car-item empty-car-item">
+            <div class="ui-g-12 ui-md-2">
+                <div class="empty-car-item-index"></div>
+            </div>
+            <div class="ui-g-12 ui-md-2">
+                <div class="empty-car-item-image"></div>
+            </div>
+            <div class="ui-g-12 ui-md-8">
+                <div class="ui-g">
+                    <div class="ui-g-12"><div class="empty-car-item-text"></div></div>
+                    <div class="ui-g-12"><div class="empty-car-item-text"></div></div>
+                    <div class="ui-g-12"><div class="empty-car-item-text"></div></div>
+                    <div class="ui-g-12"><div class="empty-car-item-text"></div></div>
+                    <div class="ui-g-12"><div class="empty-car-item-text"></div></div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+-->

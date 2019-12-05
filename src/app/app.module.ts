@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+import { PrimengModule } from './primeng/primeng.module'
+
 import { AppComponent } from './app.component';
 import { AltaCamareroComponent } from './components/camareros/alta-camarero/alta-camarero.component';
 import { ListCamareroComponent } from './components/camareros/list-camarero/list-camarero.component';
@@ -13,6 +14,9 @@ import { ListProductoComponent } from './components/productos/list-producto/list
 import { AltaProductoComponent } from './components/productos/alta-producto/alta-producto.component';
 import { EditProductoComponent } from './components/productos/edit-producto/edit-producto.component';
 import { DetallePedidoComponent } from './components/pedidos/detalle-pedido/detalle-pedido.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { DetallePedidoComponent } from './components/pedidos/detalle-pedido/deta
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PrimengModule
   ],
   providers: [],
   bootstrap: [AppComponent]

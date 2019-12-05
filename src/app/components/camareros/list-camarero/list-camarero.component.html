@@ -1,12 +1,15 @@
-<h2>Lista de camareros</h2>
-
-<table>
-    <tr>
-        <th>Codigo</th>
-        <th>Nombre</th>
-    </tr>
-    <tr *ngFor="let camarero of camareros">
-        <td>{{camarero.codigo}}</td>
-        <td>{{camarero.nombre}}</td>
-    </tr>
-</table>
+<h3 class="first">Lista de camareros</h3>
+<p-table [value]="camareros">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-camarero>
+        <tr>
+            <td>{{camarero.codigo}}</td>
+            <td>{{camarero.nombre}}</td>
+        </tr>
+    </ng-template>
+</p-table>

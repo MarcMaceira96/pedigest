@@ -20,8 +20,11 @@ export class AltaCamareroComponent implements OnInit {
   }
 
   alta() {
-    this.camareroService.create(this.camarero).subscribe(data => console.log(data));
-    this.router.navigateByUrl("/camareros")
+    this.camareroService.create(this.camarero).subscribe(data => {
+      console.log(data);
+      this.router.navigateByUrl("/camareros")
+    });
+    
   }
 
 }

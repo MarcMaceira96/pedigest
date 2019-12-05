@@ -1,18 +1,42 @@
 <h2>Alta pedido</h2>
 
-<p>Camarero: 
-<select [(ngModel)]="pedido.camarero">
-    <option *ngFor="let camarero of camareros" [ngValue]="camarero">{{camarero.nombre}}</option>
-</select><br></p>
-Mesa: <input type="number" [(ngModel)]="pedido.mesa"><br><br>
-<h3>Añadir linea de pedido:</h3>
+<div class="ui-g-12">
+    <div class="ui-g-3 ">
+        <h3 class="first">Camarero</h3>
+        <p-dropdown [options]="camareros" [(ngModel)]="pedido.camarero" placeholder="Selecciona camarero" optionLabel="nombre" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="ui-g-3 ">
+        <h3>Mesa</h3>
+        <input type="number" pInputText placeholder="Numero de mesa" [(ngModel)]="pedido.mesa"/>
+    </div>
+</div>
+
+
+<div class="ui-g-12">
+    <div class="ui-g-3">
+        <h3 class="first">Producto</h3>
+        <p-dropdown [options]="productos" [(ngModel)]="lineaPedido.producto" (onChange)="setPrice($event)" placeholder="Selecciona producto" optionLabel="nombre" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="ui-g-3">
+        <h3>Cantidad</h3>
+        <input type="number" pInputText placeholder="Numero de mesa" [(ngModel)]="lineaPedido.cantidad"/>
+    </div>
+    <div class="ui-g-3">
+        <h3>Precio</h3>
+        <input type="number" pInputText placeholder="Precio" [(ngModel)]="lineaPedido.precio"/>
+    </div>
+    <div class="ui-g-3"><br><br><br>
+        <button pButton type="button" label="Añadir" (click)="crearLinea()" icon="pi pi-fw pi-plus"></button>
+    </div>
+</div>
+
 <!--Producto:
 <select [(ngModel)]="lineaPedido.producto" (change)="setPrice()">
     <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}}</option>
 </select><br>
 Cantidad: <input type="number" [(ngModel)]="lineaPedido.cantidad"><br>
 Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>
--->
+
 <table>
     <tr>
         <th>Producto</th>
@@ -29,6 +53,7 @@ Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>
         <th><input type="number" [(ngModel)]="lineaPedido.precio"></th>
     </tr>
 </table>
+
 <button (click)="crearLinea()">Añadir linea</button><br><br>
 
 <h3>Detalle del pedido:</h3>
@@ -46,5 +71,27 @@ Precio: <input type="number" [(ngModel)]="lineaPedido.precio"><br>
         <td><button (click)="eliminar(linea)">Borrar linea</button></td>
     </tr>
 </table><br><br><br>
-<button (click)="add()">Crear pedido</button>
 
+-->
+
+<h3 class="first">Detalle del pedido</h3>
+<p-table [value]="pedido.lineasPedido">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-linea>
+        <tr>
+            <td>{{linea.producto.nombre}}</td>
+            <td>{{linea.cantidad}}</td>
+            <td>{{linea.precio | currency: 'EUR'}}</td>
+            <td><button pButton type="button" label="Borrar linea" (click)="eliminar(linea)"  class="ui-button-danger"></button></td>
+        </tr>
+    </ng-template>
+</p-table>
+<br><br>
+<button pButton type="button" label="Crear pedido" (click)="add()" class="ui-button-success"></button>

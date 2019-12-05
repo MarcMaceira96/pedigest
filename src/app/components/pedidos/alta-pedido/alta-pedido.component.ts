@@ -19,6 +19,8 @@ export class AltaPedidoComponent implements OnInit {
   camareros: Camarero[] = undefined;
   lineaPedido:LineaPedido = new LineaPedido();
   productos:Producto[] = undefined;
+  selectedCamarero:Camarero;
+  selectedProducto:Producto;
 
   constructor(private pedidoService:PedidoService,
               private camareroService:CamareroService,

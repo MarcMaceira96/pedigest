@@ -1,16 +1,4 @@
-<h1>Pedigest</h1>
-
-<nav>
-  <ul>
-    <li><a routerLink="/altaCamarero">Alta camarero</a></li>
-    <li><a routerLink="/camareros">Lista camareros</a></li>
-    <li><a routerLink="/altaPedido">Alta pedido</a></li>
-    <li><a routerLink="/pedidos">Lista pedidos</a></li>
-    <li><a routerLink="/altaProducto">Alta producto</a></li>
-    <li><a routerLink="/productos">Lista productos</a></li>
-  </ul>
-</nav>
-
-
+<p-menu #menu [popup]="true" [model]="items"></p-menu>
+<button type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>
 
 <router-outlet></router-outlet>

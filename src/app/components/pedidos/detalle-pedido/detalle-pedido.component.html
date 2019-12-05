@@ -1,7 +1,65 @@
 <h2>Detalle del pedido</h2>
 
-<div *ngIf="pedido.lineasPedido && pedido.camarero">
- 
+<div *ngIf="pedido.lineasPedido && pedido.camarero" >
+     
+    <h3 class="first">Lista de camareros</h3>
+    <p-table [value]="pedidoArray">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Pedido ID</th>
+                <th>Nombre</th>
+                <th>Mesa</th>
+                <th>Fecha</th>
+                <th>NumeroLineas</th>
+                <th>Precio Total</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pedido>
+            <tr>
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.camarero.nombre}}</td>
+                <td>{{pedido.mesa}}</td>
+                <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
+                <td>{{pedido.lineasPedido.length}}</td>
+                <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <h3 class="first">Detalles del pedido</h3>
+    <p-table [value]=pedido.lineasPedido>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Descripcion</th>
+                <th>Descatalogado</th>
+                <th>Fecha Alta</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-linea>
+            <tr>
+                <td>{{linea.producto.codigo}}</td>
+                <td>{{linea.producto.nombre}}</td>
+                <td>{{linea.cantidad}}</td>
+                <td>{{linea.precio | currency: 'EUR'}}</td>
+                <td>{{linea.producto.categoria}}</td>
+                <td>{{linea.producto.descripcion}}</td>
+                <td>{{linea.producto.descatalogado}}</td>
+                <td>{{linea.producto.fechaAlta | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    
+   
+</div>
+
+
+<!--
     <table title="Detalles generales">
         <tr>
             <th>ID</th>
@@ -20,8 +78,8 @@
             <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
         </tr>
     </table>
-    
-    <table title="Productos del pedido">
+
+ <table title="Productos del pedido">
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
@@ -45,4 +103,4 @@
             
         </tr>
     </table>
-</div>
+-->
