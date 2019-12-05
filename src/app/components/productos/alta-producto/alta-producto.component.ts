@@ -12,19 +12,33 @@ import { Router } from '@angular/router';
 export class AltaProductoComponent implements OnInit {
 
   producto:Producto = new Producto();
-  categorias:string[] = undefined;
+  categorias:string[] = [];
+  aux:any[] = [];
+  selectedCategoria: string;
+  descatalogadoP: boolean;
+
+  borrame:string = undefined;
 
   constructor(private productoService:ProductoService,
               private categoriaService:CategoriaService,
               private router:Router,) { }
 
   ngOnInit() {
-    this.categoriaService.getAll().subscribe(datos => this.categorias = datos);
+    this.categoriaService.getAll().subscribe(datos => {
+      this.categorias = datos;
+
+      for(let categoria of this.categorias){
+        this.aux.push({label:categoria, value:categoria});
+      }
+      console.log(this.aux);
+    });
   }
 
-  crear(){
+  add(){
+    this.producto.fechaAlta = new Date();
+    console.log(this.producto);
     this.productoService.create(this.producto).subscribe(data => console.log(data));
-    this.router.navigateByUrl("/productos")
+    this.router.navigateByUrl("/productos");
   }
 
 }

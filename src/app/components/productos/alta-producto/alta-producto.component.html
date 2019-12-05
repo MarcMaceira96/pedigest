@@ -1,6 +1,6 @@
 <h2>Alta producto</h2>
 
-Codigo: <input type="number" [(ngModel)]="producto.codigo"><br>
+<!--Codigo: <input type="number" [(ngModel)]="producto.codigo"><br>
 Nombre: <input type="text" [(ngModel)]="producto.nombre"><br>
 Categoria: 
 <select [(ngModel)]="producto.categoria">
@@ -10,4 +10,46 @@ Descripcion: <input type="text" [(ngModel)]="producto.descripcion"><br>
 Fecha: <input type="date" [(ngModel)]="producto.fechaAlta"><br>
 Precio: <input type="number" [(ngModel)]="producto.precio"><br>
 Descatalogado: <input type="checkbox" [(ngModel)]="producto.descatalogado"><br>
-<button (click)="crear()">Crear</button>
+<button (click)="crear()">Crear</button>-->
+
+<div>
+    <div class="ui-g-4">
+        <h3 class="first">Nombre</h3>
+            <span class="ui-float-label">
+                <input id="float-input" type="text" size="30" pInputText [(ngModel)]="producto.nombre"> 
+                <label for="float-input">Nombre del producto</label>
+            </span>
+    </div>
+    <div class="ui-g-4">
+        <h3 class="first">Codigo</h3>
+        <p-spinner size="30" [(ngModel)]="producto.codigo"></p-spinner>
+    </div>
+    {{borrame}}
+    <div class="ui-g-4">    <h3 class="first">Categoria</h3>
+        <p-dropdown *ngIf="aux.length > 5" 
+                    [options]="aux" 
+                    [(ngModel)]="producto.categoria" 
+                    placeholder="Categoria..." 
+                    (optionLabel)="label"
+                    [showClear]="true">
+        </p-dropdown>
+    </div>
+    <div class="ui-g-4">
+        <h3 class="first">Descripcion</h3>
+        <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="producto.descripcion"></textarea>
+    </div>
+    <div class="ui-g-4">
+            <h3>Precio</h3>
+            <input type="number" pInputText placeholder="Precio" [(ngModel)]="producto.precio"/>
+    </div>
+    <div class="ui-g-4">
+        <h3 class="first">Disponibilidad</h3>
+        <input type='checkbox' label="Descatalogado" [(ngModel)]="producto.descatalogado" >
+    </div>
+    <div class="ui-g-2"><br><br>
+        <button pButton type="button" label="Añadir" (click)="add()" icon="pi pi-fw pi-plus"></button>
+    </div>
+</div>
+
+
+

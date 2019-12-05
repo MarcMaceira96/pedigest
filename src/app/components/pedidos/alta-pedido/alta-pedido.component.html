@@ -15,7 +15,7 @@
 <div class="ui-g-12">
     <div class="ui-g-3">
         <h3 class="first">Producto</h3>
-        <p-dropdown [options]="productos" [(ngModel)]="lineaPedido.producto" (onChange)="setPrice($event)" placeholder="Selecciona producto" optionLabel="nombre" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="productos" [(ngModel)]="lineaPedido.producto" (hange)="setPrice($event)" placeholder="Selecciona producto" optionLabel="nombre" [showClear]="true"></p-dropdown>
     </div>
     <div class="ui-g-3">
         <h3>Cantidad</h3>

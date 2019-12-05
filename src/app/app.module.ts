@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { PrimengModule } from './primeng/primeng.module'
+import { PrimengModule } from './primeng/primeng.module';
+
 
 import { AppComponent } from './app.component';
 import { AltaCamareroComponent } from './components/camareros/alta-camarero/alta-camarero.component';
