@@ -7,6 +7,8 @@ import {MenuModule} from 'primeng/menu';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
     MenuModule,
     InputTextModule,
     DropdownModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    CalendarModule,
+    InputTextareaModule
   ],
   exports:[
     BrowserAnimationsModule,
@@ -28,7 +32,9 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
     MenuModule,
     InputTextModule,
     DropdownModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    CalendarModule,
+    InputTextareaModule
   ]
 })
 export class PrimengModule { }

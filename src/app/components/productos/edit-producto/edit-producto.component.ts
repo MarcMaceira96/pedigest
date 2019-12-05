@@ -13,7 +13,7 @@ export class EditProductoComponent implements OnInit {
 
   producto:Producto;
   codigo:number;
-  categorias:string[];
+  categorias:any[] = [];
 
   constructor(private router:Router,
               private activatedRoute:ActivatedRoute,
@@ -23,22 +23,27 @@ export class EditProductoComponent implements OnInit {
   ngOnInit() {
     
     this.categoriaService.getAll().subscribe(datos => {
-      this.categorias = datos;
+      //this.categorias = datos;
+      for (let categoria of datos){
+        this.categorias.push({label:categoria, value:categoria})
+      }
     });
 
     this.activatedRoute.params.subscribe(x =>{
       this.productoService.read(Number(x.codigo)).subscribe(datos => {
-        console.log(datos)
         this.producto = datos;
+        this.producto.fechaAlta = new Date(datos.fechaAlta);
       })
+
+      
     });
   }
 
   edit(){
     this.productoService.create(this.producto).subscribe(datos => {
-      console.log(datos)
+      console.log(datos);
+      this.router.navigateByUrl('/productos');
     })
-    this.router.navigateByUrl('/productos')
   };
 
 }

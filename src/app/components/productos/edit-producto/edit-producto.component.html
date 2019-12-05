@@ -1,21 +1,27 @@
 <h2>Editar producto</h2>
 <br>
 <div *ngIf=producto>
-    Codigo ISBN<br>
-    <p>{{producto.codigo}}</p>
-    Nombre:
-    <input type='text'[(ngModel)]='producto.nombre' ><br><br>
-    Categoria del producto: 
+    <h3>Codigo ISBN:&nbsp;{{producto.codigo}}</h3>
+    <h3>Nombre</h3>
+    <input pInputText type='text'[(ngModel)]='producto.nombre'>
+    <h3>Categoria del producto</h3>
+    <p-dropdown [options]="categorias" 
+                [(ngModel)]="producto.categoria"  
+                placeholder="Selecciona categoria" 
+                (optionLabel)="label" 
+                [showClear]="true"></p-dropdown>
+
+<!--
     <select [(ngModel)]='producto.categoria'>
         <option *ngFor='let categoria of categorias' [(ngValue)]='categoria'>{{categoria}}
-    </select><br><br>
-    Descatalogado:
-    <input type='checkbox' [(ngModel)]='producto.descatalogado'><br><br>
-    Descripción:
-    <input type='text'[(ngModel)]='producto.descripcion' ><br><br>
-    Fecha de alta:
-    <input type='date' [(ngModel)]='producto.fechaAlta' ><br><br>
-    Precio:
-    <input type='number' [(ngModel)]='producto.precio' ><br><br>
+    </select>-->
+    <h3>Descripción</h3>
+    <textarea rows="5" cols="30" pInputTextarea [(ngModel)]='producto.descripcion' ></textarea>
+    <h3>Fecha de alta</h3>
+    <p-calendar [(ngModel)]='producto.fechaAlta'></p-calendar>
+    <h3>Precio</h3>
+    <input pInputText type='number' [(ngModel)]='producto.precio' >
+    <h3>Descatalogado:
+            <input type='checkbox' [(ngModel)]='producto.descatalogado'></h3>
     <button (click)="edit()">Actualizar</button>
 </div>

@@ -19,9 +19,9 @@
                 <td>{{pedido.id}}</td>
                 <td>{{pedido.camarero.nombre}}</td>
                 <td>{{pedido.mesa}}</td>
-                <td>{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
+                <td class="fecha">{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
                 <td>{{pedido.lineasPedido.length}}</td>
-                <td>{{precioTotal(pedido) | currency: 'EUR'}}</td>
+                <td class="numero">{{precioTotal(pedido) | currency: 'EUR'}}</td>
             </tr>
         </ng-template>
     </p-table>
@@ -32,8 +32,8 @@
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>Cantidad</th>
                 <th>Precio</th>
+                <th>Cantidad</th>
                 <th>Categoria</th>
                 <th>Descripcion</th>
                 <th>Descatalogado</th>
@@ -44,12 +44,13 @@
             <tr>
                 <td>{{linea.producto.codigo}}</td>
                 <td>{{linea.producto.nombre}}</td>
-                <td>{{linea.cantidad}}</td>
-                <td>{{linea.precio | currency: 'EUR'}}</td>
-                <td>{{linea.producto.categoria}}</td>
+                <td class="numero">{{linea.precio | currency: 'EUR'}}</td>
+                <td class="numero">{{linea.cantidad}}</td>     
+                <td><img class="littleImg" src="assets/{{linea.producto.categoria}}.png">&nbsp;{{linea.producto.categoria}}</td>
+                <!--<td class="centrado">{{linea.producto.categoria}}</td>-->
                 <td>{{linea.producto.descripcion}}</td>
-                <td>{{linea.producto.descatalogado}}</td>
-                <td>{{linea.producto.fechaAlta | date: 'dd/MM/yyyy'}}</td>
+                <td class="centrado">{{linea.producto.descatalogado}}</td>
+                <td class="centrado">{{linea.producto.fechaAlta | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </ng-template>
     </p-table>

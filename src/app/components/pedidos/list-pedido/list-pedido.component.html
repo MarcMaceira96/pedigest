@@ -15,7 +15,7 @@
         <tr>
             <td>{{pedido.id}}</td>
             <td>{{pedido.camarero.nombre}}</td>
-            <td class="fecha">{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
+            <td class="centrado">{{pedido.fecha | date: 'dd/MM/yyyy'}}</td>
             <td class="numero">{{pedido.mesa}}</td>
             <td class="numero">{{pedido.lineasPedido.length}}</td>
             <td class="numero">{{precioTotal(pedido) | currency: 'EUR'}}</td>
