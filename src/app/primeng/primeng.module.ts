@@ -7,8 +7,13 @@ import {MenuModule} from 'primeng/menu';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
-import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { SpinnerModule } from 'primeng/spinner';
+import { CheckboxModule } from 'primeng/checkbox';
+import {CalendarModule} from 'primeng/calendar';
+
+
+
 
 
 @NgModule({
@@ -22,8 +27,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     InputTextModule,
     DropdownModule,
     VirtualScrollerModule,
-    CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    CheckboxModule,
+    CalendarModule
   ],
   exports:[
     BrowserAnimationsModule,
@@ -33,8 +39,10 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     InputTextModule,
     DropdownModule,
     VirtualScrollerModule,
-    CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    SpinnerModule,
+    CheckboxModule,
+    CalendarModule
   ]
 })
 export class PrimengModule { }
